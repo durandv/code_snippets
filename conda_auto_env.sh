@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Modified from:
 # https://github.com/chdoig/conda-auto-env
 

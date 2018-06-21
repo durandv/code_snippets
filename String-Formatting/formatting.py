@@ -1,4 +1,3 @@
-
 person = {'name': 'Jenn', 'age': 23}
 
 # sentence = 'My name is ' + person['name'] + ' and I am ' + str(person['age']) + ' years old.'
@@ -30,6 +29,7 @@ class Person():
         self.name = name
         self.age = age
 
+
 p1 = Person('Jack', '33')
 
 sentence = 'My name is {0.name} and I am {0.age} years old.'.format(p1)
@@ -53,10 +53,9 @@ print(sentence)
 # print(sentence)
 
 
-sentence = '1 MB is equal to {} bytes'.format(1000**2)
+sentence = '1 MB is equal to {} bytes'.format(1000 ** 2)
 
 print(sentence)
-
 
 import datetime
 

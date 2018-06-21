@@ -1,7 +1,9 @@
 
-condition = 'Test'
+condition = '1'
 
-if condition:
-    print('Evaluated to True')
+if condition == '1':
+    print('1')
+elif condition == '2':
+    print('2')
 else:
-    print('Evaluated to False')
+    print('0')
