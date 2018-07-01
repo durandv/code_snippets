@@ -1,4 +1,3 @@
-
 condition = '1'
 
 if condition == '1':

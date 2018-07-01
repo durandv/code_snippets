@@ -8,7 +8,9 @@ def hello(name):
 
 def student_info(*args, **kwargs):
     print(args)
+    print(type(args))
     print(kwargs)
+    print(type(kwargs))
 
 
 def is_leap(year):
@@ -36,4 +38,6 @@ def days_in_month(year, month):
 courses = ['Math', 'Art']
 info = {'name': 'Vic', 'age': 32}
 
-student_info(*courses, **info)
+# student_info(*courses, **info)
+
+student_info('a', 'b', c=1, d=2)
