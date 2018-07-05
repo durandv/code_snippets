@@ -3,7 +3,6 @@ import pandas as pd
 import requests
 import os.path
 
-
 def getHeader():
     """Cabecera http para los requests (si no se especifica el request queda en un bucle infinito)"""
 
@@ -46,11 +45,37 @@ def getTablaUnica(fecha, nro):
     return tables[0].set_index(['Club'])
 
 
+def getTablaCategoria(fecha, sexo, grupo):
+    """Obtiene la tabla de posicion por grupo"""
+
+    weekNumber = datetime.date.today().isocalendar()[1]
+    datestr = fecha.strftime("%Y%m")
+
+    file_path = "tablacategoria_{}_{}_{}_{}.html".format(sexo, grupo, datestr, weekNumber)
+    url = "http://www.ahba.com.ar/muestro_datos_posiciones.php?sexo={}&nombrecampeonato={}".format(sexo, grupo)
+    headers = getHeader()
+
+    if (not os.path.isfile(file_path)):
+        r = requests.get(url, headers=headers)
+        r.encoding = "utf-8"
+        s = r.text
+
+        # Write file
+        with open(file_path, 'w') as file:
+            file.write(s)
+
+    # Open file
+    with open(file_path, 'r') as f:
+        tables = pd.read_html(f.read(), match="TABLA DE POSICIONES", header=2)
+
+    return tables[0].set_index(['Club'])
+
 # df = getTablaUnica(datetime.date.today())
 # df = getTablaUnica(datetime.date(2018, 7, 1))
 # print(df.head(5))
 
-df = getTablaUnica(datetime.date(2018, 7, 4), 9)
+#df = getTablaUnica(datetime.date(2018, 7, 4), 9)
+df = getTablaCategoria(datetime.date(2018, 7, 4), 2, "6EZ4")
 print(df.head(10))
 
 # print(df[["Club", "Pts"]].head(5)) # Regs de las columnas
