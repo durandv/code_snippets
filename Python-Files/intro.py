@@ -1,5 +1,7 @@
 size_to_read = 10
 
+print(list(range(1,2)))
+
 # MODO 1
 # f = open('../README.md', 'r')
 # print(f.name, f.mode)
