@@ -23,7 +23,13 @@ import pandas as pd
 # Import from csv
 cars = pd.read_csv('cars.csv', index_col=0)
 
-print(cars)
+# print(cars.iloc[0:2,1:])
+
+print(cars.info())
+
+# # iterrows
+# for j, p in cars.iterrows():
+#     print(j, '>>', p)
 
 # print(cars[0:3])
 # print(cars[3:6])
@@ -40,11 +46,11 @@ print(cars)
 # print(cars.loc[["RU", "MOR"], ["country", "drives_right"]])
 # print(cars.iloc[[4, 5]], [0, 1])
 
-# Print out drives_right column as Series
-print(cars.loc[:,"drives_right"])
-
-# Print out drives_right column as DataFrame
-print(cars.loc[:,["drives_right"]])
-
-# Print out cars_per_cap and drives_right as DataFrame
-print(cars.loc[:, ["cars_per_cap","drives_right"]])
+# # Print out drives_right column as Series
+# print(cars.loc[:,"drives_right"])
+#
+# # Print out drives_right column as DataFrame
+# print(cars.loc[:,["drives_right"]])
+#
+# # Print out cars_per_cap and drives_right as DataFrame
+# print(cars.loc[:, ["cars_per_cap","drives_right"]])

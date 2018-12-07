@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as pp
 import pandas as pd
-import seaborn sb
+import seaborn as sb
 import zipfile
 import os
 
@@ -28,6 +28,7 @@ for year in range(1880, 2018):
 
 all_names = pd.concat(all_years)
 # print(all_names.tail())
+# print(all_names.info())
 
 # Group
 group_name = all_names.groupby(['Sex', 'Year'])
@@ -39,13 +40,11 @@ pv = pd.pivot_table(all_names, 'Babies', ['Name', 'Sex'], 'Year')
 
 # Visualization
 all_names_index = all_names.set_index(['Sex', 'Name', 'Year']).sort_index()
-# print(all_names_index.loc['M', 'Aaron'])
+print(all_names_index.loc['M', 'Aaron'])
 
-pp.figure(figsize=(18, 8))
-names = ['Sammy', 'Jesse', 'Emma', 'Jamie', 'Ada']
-for name in names:
-    name_plot('F', name)
-pp.legend(names)
-pp.show()
-
-sns.distplot();
+# pp.figure(figsize=(18, 8))
+# names = ['Sammy', 'Jesse', 'Emma', 'Jamie', 'Ada']
+# for name in names:
+#     name_plot('F', name)
+# pp.legend(names)
+# pp.show()
